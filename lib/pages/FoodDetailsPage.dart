@@ -29,7 +29,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
           actions: <Widget>[
             IconButton(
                 icon: Icon(
-                  Icons.business_center,
+                  Icons.shopping_cart,
                   color: Color(0xFF3a3737),
                 ),
                 onPressed: () {
@@ -37,82 +37,84 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                 })
           ],
         ),
-        body: Container(
-          padding: EdgeInsets.only(
-            left: 15,
-            right: 15,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Card(
-                semanticContainer: true,
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                child: Image.asset(
-                  'assets/images/bestfood/' + 'ic_best_food_8' + ".jpeg",
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(3.0),
-                ),
-                elevation: 1,
-                margin: EdgeInsets.all(5),
-              ),
-              /*  Container(
-                height: 150,
-                child:FoodDetailsSlider(
-                    slideImage1: "assets/images/bestfood/ic_best_food_8.jpeg",
-                    slideImage2: "assets/images/bestfood/ic_best_food_9.jpeg",
-                    slideImage3: "assets/images/bestfood/ic_best_food_10.jpeg"),
-              ),*/
-
-              FoodTitleWidget(
-                  productName: "Grilled Salmon",
-                  productPrice: "\$96.00",
-                  productHost: "pizza hut"),
-              SizedBox(
-                height: 15,
-              ),
-              AddToCartMenu(),
-              SizedBox(
-                height: 15,
-              ),
-              PreferredSize(
-                preferredSize: Size.fromHeight(50.0),
-                child: TabBar(
-                  labelColor: Color(0xFFfd3f40),
-                  indicatorColor: Color(0xFFfd3f40),
-                  unselectedLabelColor: Color(0xFFa4a1a1),
-                  indicatorSize: TabBarIndicatorSize.label,
-                  labelStyle: TextStyle(
-                    fontWeight: FontWeight.w500,
+        body: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.only(
+              left: 15,
+              right: 15,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Card(
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: Image.asset(
+                    'assets/images/bestfood/' + 'ic_best_food_8' + ".jpeg",
                   ),
-                  tabs: [
-                    Tab(
-                      text: 'Food Details',
-                    ),
-                    Tab(
-                      text: 'Food Reviews',
-                    ),
-                  ], // list of tabs
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(3.0),
+                  ),
+                  elevation: 1,
+                  margin: EdgeInsets.all(5),
                 ),
-              ),
-              Container(
-                height: 150,
-                child: TabBarView(
-                  children: [
-                    Container(
-                      color: Colors.white24,
-                      child: DetailContentMenu(),
-                    ),
-                    Container(
-                      color: Colors.white24,
-                      child: DetailContentMenu(),
-                    ), // class name
-                  ],
+                /*  Container(
+                  height: 150,
+                  child:FoodDetailsSlider(
+                      slideImage1: "assets/images/bestfood/ic_best_food_8.jpeg",
+                      slideImage2: "assets/images/bestfood/ic_best_food_9.jpeg",
+                      slideImage3: "assets/images/bestfood/ic_best_food_10.jpeg"),
+                ),*/
+
+                FoodTitleWidget(
+                    productName: "Grilled Salmon",
+                    productPrice: "\$96.00",
+                    productHost: "pizza hut"),
+                SizedBox(
+                  height: 15,
                 ),
-              ),
-              BottomMenu(),
-            ],
+                AddToCartMenu(),
+                SizedBox(
+                  height: 15,
+                ),
+                PreferredSize(
+                  preferredSize: Size.fromHeight(50.0),
+                  child: TabBar(
+                    labelColor: Color(0xFFfd3f40),
+                    indicatorColor: Color(0xFFfd3f40),
+                    unselectedLabelColor: Color(0xFFa4a1a1),
+                    indicatorSize: TabBarIndicatorSize.label,
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.w500,
+                    ),
+                    tabs: [
+                      Tab(
+                        text: 'Food Details',
+                      ),
+                      Tab(
+                        text: 'Food Reviews',
+                      ),
+                    ], // list of tabs
+                  ),
+                ),
+                Container(
+                  height: 150,
+                  child: TabBarView(
+                    children: [
+                      Container(
+                        color: Colors.white24,
+                        child: DetailContentMenu(),
+                      ),
+                      Container(
+                        color: Colors.white24,
+                        child: DetailContentMenu(),
+                      ), // class name
+                    ],
+                  ),
+                ),
+                BottomMenu(),
+              ],
+            ),
           ),
         ),
       ),

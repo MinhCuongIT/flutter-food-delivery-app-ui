@@ -343,16 +343,20 @@ class CartItem extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                Container(
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Center(
-                        child: Image.asset(
-                      "assets/images/popular_foods/$productImage.png",
-                      width: 110,
-                      height: 100,
-                    )),
-                  ),
+                Column(
+                  children: [
+                    Container(
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Center(
+                            child: Image.asset(
+                          "assets/images/popular_foods/$productImage.png",
+                          width: 110,
+                          height: 100,
+                        )),
+                      ),
+                    ),
+                  ],
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
@@ -362,7 +366,7 @@ class CartItem extends StatelessWidget {
                       height: 5,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      // mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -405,11 +409,7 @@ class CartItem extends StatelessWidget {
                         )
                       ],
                     ),
-                    Container(
-                      margin: EdgeInsets.only(left: 20),
-                      alignment: Alignment.centerRight,
-                      child: AddToCartMenu(2),
-                    )
+                    AddToCartMenu(2)
                   ],
                 )
               ],
@@ -428,7 +428,7 @@ class CartIconWithBadge extends StatelessWidget {
       children: <Widget>[
         IconButton(
             icon: Icon(
-              Icons.business_center,
+              Icons.shopping_cart,
               color: Color(0xFF3a3737),
             ),
             onPressed: () {}),

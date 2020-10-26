@@ -11,7 +11,31 @@ class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
+
 class _HomePageState extends State<HomePage> {
+  int _indexTab = 0;
+  List<Widget> _lsBody = [
+    SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          SearchWidget(),
+          TopMenus(),
+          PopularFoodsWidget(),
+          BestFoodWidget(),
+        ],
+      ),
+    ),
+    Center(
+      child: Text('Tab2'),
+    ),
+    Center(
+      child: Text('Tab3'),
+    ),
+    Center(
+      child: Text('Tab4'),
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,20 +56,24 @@ class _HomePageState extends State<HomePage> {
                 Icons.notifications_none,
                 color: Color(0xFF3a3737),
               ),
-              onPressed: () {Navigator.push(context, ScaleRoute(page: SignInPage()));})
+              onPressed: () {
+                Navigator.push(context, ScaleRoute(page: SignInPage()));
+              })
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            SearchWidget(),
-            TopMenus(),
-            PopularFoodsWidget(),
-            BestFoodWidget(),
-          ],
-        ),
+      body: IndexedStack(
+        index: _indexTab,
+        children: _lsBody,
       ),
-      bottomNavigationBar: BottomNavBarWidget(),
+      bottomNavigationBar: BottomNavBarWidget(
+        onUpdateTab: _onUpdateTab,
+      ),
     );
+  }
+
+  _onUpdateTab(int tabIndex) {
+    setState(() {
+      _indexTab = tabIndex;
+    });
   }
 }
